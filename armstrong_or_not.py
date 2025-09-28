@@ -9,6 +9,7 @@ so its armstrong
 # print(degits)
 # sum=0
 # temp=num
+
 # while temp>0:
 #     degit=temp%10
 #     sum+=degit**degits
