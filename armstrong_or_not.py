@@ -2,6 +2,8 @@
 if we have 153 =total degits=3
 so 1**3,5**3,3**3=153
 so its armstrong
+
+and is you have 4 degit to num**4 to all
 '''
 # num=int(input("enter a number"))
 # print(num)
