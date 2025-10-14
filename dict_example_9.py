@@ -61,7 +61,11 @@ car_data={"ev":
             
         }
            
-print(car_data)
+# print(car_data)
+
+
+k=input("enter a car variant:")
+print("this is yor ",k," variant:",car_data[k])
 
 
 
