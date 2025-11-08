@@ -29,4 +29,12 @@ if city_name in cities:
 # if user enter 400018 then output  Worli , Mumbai
 pin_code=int(input("enter a pin_code:"))
 for k,v in cities:
-    if   
+    if pin==pin_code:
+        print(area,",",city_name)
+
+
+
+# if user enters Mandvi then output is pin code is 400003 and it's in Mumbai"
+for city, data in cities.items():
+    for area, code in data:
+            print("Pin code is", code, "and it's in", city)
