@@ -30,7 +30,7 @@ def market_manager():
             case 3:
                 #update a fruit stock manually
                 print("\nUpdate Fruit Stoke")
-                name=input("Enter fruit name to update").capitalize()
+                name=input("Enter fruit name to update")
 
                 if name in fruits:
                     new_qty=int(input("Enter a new quantity (in kg):"))
