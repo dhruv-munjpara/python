@@ -1,4 +1,4 @@
-from view_fruit import fruits
+from view_fruit import fruits,save_fruits
 def market_manager():
     global fruits # use shared fruits dict
     
@@ -21,6 +21,8 @@ def market_manager():
                 else:
                     fruits[name]={'qty':qty , 'price':price}
                     print(f"{name} added successfully!")
+                save_fruits(fruits)  # save
+                print("Saved!")
 
             case 2:
                 #viwe full stoke
@@ -38,6 +40,7 @@ def market_manager():
                     fruits[name]['qty']=new_qty
                     fruits[name]['price']=new_price
                     print(f"{name} updated successfully!")
+                    save_fruits(fruits)
                 else:
                     print(f"{name} not found in stock!")
 

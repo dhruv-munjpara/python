@@ -1,4 +1,4 @@
-from view_fruit import fruits
+from view_fruit import fruits,save_fruits
 def market_customer():
     global fruits # use shared fruits dict
     
@@ -25,6 +25,7 @@ def market_customer():
                     if qty<=fruits[name]['qty']:
                         total=qty*fruits[name]['price']
                         fruits[name]['qty']-=qty
+                        save_fruits(fruits)
                         print(f"you bought {qty} kg of {name} for ₹{total}.") 
                     else:
                         print(f"Sorry, only {fruits[name]['qty']} kg of {name} is Available.")
