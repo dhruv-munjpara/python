@@ -1,9 +1,18 @@
 from market_manager import market_manager
 from market_customer import market_customer
+
+def input_int(msg):
+    """accpet only valid integer input"""
+    while True:
+        try:
+            return int(input(msg))
+        except ValueError:
+            print("invalid input!! enter a numbers only.")
+
 while True:
     print("WELCOME TO FRUIT MARKET\n")
-    print("1)Manager \n2)Customer \n")
-    Choice=int(input("enter a choice:"))
+    print("1)Manager \n2)Customer \n3)exit \n")
+    Choice=input_int("enter a choice:")
     match Choice:
         case 1:
             print("\nFruit Market Manager")

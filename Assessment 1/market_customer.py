@@ -1,10 +1,19 @@
 from view_fruit import fruits,save_fruits
+
+def input_int(msg):
+    """accept only integer input"""
+    while True:
+        try:
+            return int(input(msg))
+        except ValueError:
+            print("please enter a valid number!!")
+
 def market_customer():
     global fruits # use shared fruits dict
     
     while True:
         print("1)View Fruit Stock \n2)Buy fruits \n3)Exit \n")
-        Choice=int(input("enter a choice:"))
+        Choice=input_int("enter a choice:")
        
         match Choice:
             #view fruits for customer
@@ -12,8 +21,9 @@ def market_customer():
                 print("\nview fruit stock")
                 print("\n AVailable fruits")
                 for name,info in fruits.items():
-                    print(f"{name}:{info['qty']} kg available @ ₹{info['price']}per kg")
-
+                    if info['qty']>0:
+                        print(f"{name}:{info['qty']} kg available @ ₹{info['price']}per kg")
+            
 
             case 2:
                 #buy fruits

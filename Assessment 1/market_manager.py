@@ -1,10 +1,18 @@
 from view_fruit import fruits,save_fruits
+
+def input_int(msg):
+    """take only integer values(qty,price,menu choice)."""
+    while True:
+        try:
+            return int(input(msg))
+        except ValueError:
+            print("enter a valid number!!")
 def market_manager():
     global fruits # use shared fruits dict
     
     while True:
         print("1)Add Fruit Stock \n2)Veiw Fruit Stock \n3)Update Fruit Stoke \n")
-        Choice=int(input("enter a choice:"))
+        Choice=input_int("enter a choice:")
        
         match Choice:
             #add new fruits or upadte one
