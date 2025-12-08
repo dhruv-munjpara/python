@@ -1,5 +1,6 @@
 from market_manager import market_manager
 from market_customer import market_customer
+from view_fruit import log_transaction
 
 def input_int(msg):
     """accpet only valid integer input"""
@@ -27,8 +28,10 @@ while True:
                 print(result1)
         
         case 3:
-            print("Thank you for visiting!")
+            print("Thank you for visiting! Goodbye.")
+            log_transaction("EXIT_program","program exited by user from main menu")
             break
         
         case _:
             print("enter valid option")
+

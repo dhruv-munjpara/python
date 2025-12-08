@@ -1,4 +1,4 @@
-from view_fruit import fruits,save_fruits
+from view_fruit import fruits,save_fruits,log_transaction
 
 def input_int(msg):
     """take only integer values(qty,price,menu choice)."""
@@ -11,7 +11,7 @@ def market_manager():
     global fruits # use shared fruits dict
     
     while True:
-        print("1)Add Fruit Stock \n2)Veiw Fruit Stock \n3)Update Fruit Stoke \n")
+        print("1)Add Fruit Stock \n2)Veiw Fruit Stock \n3)Update Fruit Stoke \n4)exit to main menu\n")
         Choice=input_int("enter a choice:")
        
         match Choice:
@@ -26,9 +26,11 @@ def market_manager():
                     fruits[name]['qty']+=qty
                     fruits[name]['price']=price
                     print(f"{name} updated successfully!")
+                    log_transaction("UPDATE_STOCK",f"{name} updated")
                 else:
                     fruits[name]={'qty':qty , 'price':price}
                     print(f"{name} added successfully!")
+                    log_transaction("ADD_STOCK",f"{name} added")
                 save_fruits(fruits)  # save
                 print("Saved!")
 
@@ -36,7 +38,7 @@ def market_manager():
                 #viwe full stoke
                 print("\nVeiw Fruit Stock")
                 print(fruits)
-        
+                log_transaction("VIEW_STOCK","manager view stock")
             case 3:
                 #update a fruit stock manually
                 print("\nUpdate Fruit Stoke")
@@ -49,10 +51,15 @@ def market_manager():
                     fruits[name]['price']=new_price
                     print(f"{name} updated successfully!")
                     save_fruits(fruits)
+                    print("Updated")
+                    log_transaction("MANAGER_UPDATE",f"{name} updated")
                 else:
                     print(f"{name} not found in stock!")
 
-
+            case 4:
+                print("\n Returning to main menu...")
+                log_transaction("EXIT_manager","manager exited to main menu")
+                break
             case _:
                 print("enter valid option")
         again=input("\n DO you want to perform more opration: press y for yes and n for no:").lower()

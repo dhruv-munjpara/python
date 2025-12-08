@@ -1,4 +1,4 @@
-from view_fruit import fruits,save_fruits
+from view_fruit import fruits,save_fruits,log_transaction
 
 def input_int(msg):
     """accept only integer input"""
@@ -12,7 +12,7 @@ def market_customer():
     global fruits # use shared fruits dict
     
     while True:
-        print("1)View Fruit Stock \n2)Buy fruits \n3)Exit \n")
+        print("1)View Fruit Stock \n2)Buy fruits \n3)Exit to main menu \n")
         Choice=input_int("enter a choice:")
        
         match Choice:
@@ -23,6 +23,7 @@ def market_customer():
                 for name,info in fruits.items():
                     if info['qty']>0:
                         print(f"{name}:{info['qty']} kg available @ ₹{info['price']}per kg")
+                log_transaction("VIEW_STOCK","customer viewed stock")
             
 
             case 2:
@@ -37,13 +38,15 @@ def market_customer():
                         fruits[name]['qty']-=qty
                         save_fruits(fruits)
                         print(f"you bought {qty} kg of {name} for ₹{total}.") 
+                        log_transaction("BUY",f"{qty}kg {name} purchased")
                     else:
                         print(f"Sorry, only {fruits[name]['qty']} kg of {name} is Available.")
                 else:
                     print(f"{name} is not available in stock.")       
             case 3:
                 #exit
-                print("\nThank you for visiting! see you again")
+                print("\nReturning to main menu...")
+                log_transaction("EXIT_customer","Customer exited to main menu")
                 break
 
 
