@@ -1,3 +1,7 @@
 [2025-12-08 19:19:17] EXIT_program:program exited by user from main menu
 [2025-12-08 19:19:55] EXIT_customer:Customer exited to main menu
 [2025-12-08 19:20:01] EXIT_program:program exited by user from main menu
+[2025-12-15 23:36:21] VIEW_STOCK:customer viewed stock
+[2025-12-15 23:36:40] BUY:1kg grapes purchased
+[2025-12-15 23:36:45] VIEW_STOCK:customer viewed stock
+[2025-12-15 23:36:50] EXIT_customer:Customer exited to main menu
